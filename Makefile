@@ -3,8 +3,9 @@
 NAME = push_swap
 SRCDIR = ./src/
 LIBFTDIR = ./libft/
+LIBFT = $(LIBFTDIR)libft.a
 INCLD_LIBFT = -I ./libft/includes/
-INCLD = -I ./includes
+INCLD = -I ./includes/
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror $(INCLD) $(INCLD_LIBFT) -O3 -MD
@@ -18,7 +19,7 @@ D_FILES = $(SRC_SWAP:.c=.d)
 all: $(NAME)
 
 $(NAME): $(OBJS) | tools
-		$(CC) $(CFLAGS) -L$(LIBFTDIR) $(OBJS) -o $(NAME)
+		$(CC) $(CFLAGS) $(LIBFT) $(OBJS) -o $(NAME)
 include $(wildcard $(D_FILES))
 
 tools:
