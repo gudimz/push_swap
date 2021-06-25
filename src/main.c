@@ -6,21 +6,21 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:48:53 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/25 19:11:48 by agigi            ###   ########.fr       */
+/*   Updated: 2021/06/25 19:24:42 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_error_exit(char *message)
+void	ft_error_exit(char *message)
 {
 	ft_putstr_fd(message, 2);
 	exit(1);
 }
 
-int (ft_check_argv(char *argv))
+int	(ft_check_argv(char *argv))
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (argv[i])
@@ -42,10 +42,10 @@ int (ft_check_argv(char *argv))
 	return (1);
 }
 
-void ft_check_duplicate(char **argv)
+int	ft_check_duplicate(char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	j = i + 1;
@@ -54,28 +54,30 @@ void ft_check_duplicate(char **argv)
 		j = i + 1;
 		while (argv[j])
 		{
-			if (!ft_strcmp(argv[i], argv[j]) &&		\
+			if (!ft_strcmp(argv[i], argv[j]) && \
 			ft_strlen(argv[i]) == ft_strlen(argv[j]))
-				ft_error_exit("Error\n");
+				return (0);
 			j++;
 		}
 		i++;
 	}
+	return (1);
 }
-int main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 1;
-	if (argc > 1)
+	if (argc == 1)
+		ft_error_exit("\n");
+	while (argv[i])
 	{
-		while(argv[i])
-		{
-			if (!ft_check_argv(argv[i]))
-				ft_error_exit("Error\n");
-			i++;
-		}
-		ft_check_duplicate(argv);
+		if (!ft_check_argv(argv[i]))
+			ft_error_exit("Error\n");
+		i++;
 	}
+	if (!ft_check_duplicate(argv))
+		ft_error_exit("Error\n");
 	return (0);
 }

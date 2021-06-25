@@ -28,9 +28,6 @@ tools:
 debug: CFLAGS += -fsanitize=address -g
 debug: all
 
-norme:
-		norminette $(SRC_SWAP) ./includes/*
-		make -C $(LIBFTDIR) norme
 clean:
 		rm -f $(OBJS) $(D_FILES)
 		make -C $(LIBFTDIR) clean
