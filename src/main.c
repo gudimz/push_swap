@@ -6,16 +6,16 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:48:53 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/25 19:24:42 by agigi            ###   ########.fr       */
+/*   Updated: 2021/06/26 14:47:48 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error_exit(char *message)
+void	ft_exit(char *message, int code_ex, int fd)
 {
-	ft_putstr_fd(message, 2);
-	exit(1);
+	ft_putstr_fd(message, fd);
+	exit(code_ex);
 }
 
 int	(ft_check_argv(char *argv))
@@ -64,20 +64,37 @@ int	ft_check_duplicate(char **argv)
 	return (1);
 }
 
+int ft_check_sort(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc - 1)
+	{
+		if (ft_atoi(argv[i + 1]) - ft_atoi(argv[i]) != 1)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	int	i;
 
 	i = 1;
 	if (argc == 1)
-		ft_error_exit("\n");
+		ft_exit("", 0, 1);
 	while (argv[i])
 	{
 		if (!ft_check_argv(argv[i]))
-			ft_error_exit("Error\n");
+			ft_exit("Error\n", 1, 2);
 		i++;
 	}
+	if (!ft_check_sort(argc, argv))
+		ft_exit("", 0, 1);
 	if (!ft_check_duplicate(argv))
-		ft_error_exit("Error\n");
+		ft_exit("Error\n", 1, 2);
+	printf("start algos\n");
 	return (0);
 }
