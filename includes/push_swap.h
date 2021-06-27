@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 00:33:44 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/26 17:00:01 by agigi            ###   ########.fr       */
+/*   Updated: 2021/06/27 19:31:46 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,20 @@
 
 # include <stdio.h> //delete before push!!!!!!
 
-typedef struct	s_cell
+typedef struct s_cell
 {
-		int value;
-		int	order;
-		int flag;
-}				t_cell;
-typedef struct	s_data
+	int	value;
+	int	order;
+	int	flag;
+}	t_cell;
+typedef struct s_data
 {
-		t_list	*stack_a;
-		t_list	*stack_b;
-		t_cell	cell;
-}				t_data;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	t_cell	cell;
+}	t_data;
 
-int ft_check_input(int argc, char **argv);
+int		ft_check_input(int argc, char **argv);
+void	ft_add_order(t_data *data);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 16:09:42 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/26 16:23:28 by agigi            ###   ########.fr       */
+/*   Updated: 2021/06/27 19:29:13 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	(ft_check_argv(char *argv))
+static int	ft_check_argv(char *argv)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ int	(ft_check_argv(char *argv))
 	return (1);
 }
 
-int	ft_check_duplicate(char **argv)
+static int	ft_check_duplicate(char **argv)
 {
 	int	i;
 	int	j;
@@ -58,7 +58,7 @@ int	ft_check_duplicate(char **argv)
 	return (1);
 }
 
-int	ft_check_sort(int argc, char **argv)
+static int	ft_check_sort(int argc, char **argv)
 {
 	int	i;
 
