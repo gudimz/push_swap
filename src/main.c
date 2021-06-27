@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:48:53 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/28 00:38:01 by agigi            ###   ########.fr       */
+/*   Updated: 2021/06/28 01:15:03 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,19 @@ static void	ft_init(t_data *data, int argc, char **argv)
 {
 	int		i;
 	t_cell	*cell;
+	t_list	*new;
 
 	i = 1;
 	while (i < argc)
 	{
 		cell = ft_calloc(1, sizeof(t_cell));
+		if (!cell)
+			ft_error_exit("Error\n");
 		cell->value = ft_atoi(argv[i]);
-		ft_lstadd_back(&data->stack_a, ft_lstnew(cell));
+		new = ft_lstnew(cell);
+		if (!new)
+			ft_error_exit("Error\n");
+		ft_lstadd_back(&data->stack_a, new);
 		i++;
 	}
 }
@@ -44,21 +50,18 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_init(&data, argc, argv);
 	ft_add_order(&data);
-	// ft_push_a(&data);
-	// ft_push_b(&data);
-	// ft_push_a(&data);
-	while (data.stack_a)
-	{
-		printf("A_val= %d\n", ((t_cell *)data.stack_a->content)->value);
-		printf("A_ord= %d\n", ((t_cell *)data.stack_a->content)->order);
-		data.stack_a = data.stack_a->next;
-	}
-	while (data.stack_b)
-	{
-		printf("B_val= %d\n", ((t_cell *)data.stack_b->content)->value);
-		printf("B_ord= %d\n", ((t_cell *)data.stack_b->content)->order);
-		data.stack_b = data.stack_b->next;
-	}
+	// while (data.stack_a)
+	// {
+	// 	printf("A_val= %d\n", ((t_cell *)data.stack_a->content)->value);
+	// 	printf("A_ord= %d\n", ((t_cell *)data.stack_a->content)->order);
+	// 	data.stack_a = data.stack_a->next;
+	// }
+	// while (data.stack_b)
+	// {
+	// 	printf("B_val= %d\n", ((t_cell *)data.stack_b->content)->value);
+	// 	printf("B_ord= %d\n", ((t_cell *)data.stack_b->content)->order);
+	// 	data.stack_b = data.stack_b->next;
+	// }
 	printf("start algos\n");
 	return (0);
 }

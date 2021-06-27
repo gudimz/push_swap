@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 16:09:42 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/27 19:29:13 by agigi            ###   ########.fr       */
+/*   Updated: 2021/06/28 01:04:48 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int	ft_check_sort(int argc, char **argv)
 	i = 1;
 	while (i < argc - 1)
 	{
-		if (ft_atoi(argv[i + 1]) - ft_atoi(argv[i]) != 1)
+		if (ft_atoi(argv[i + 1]) < ft_atoi(argv[i]))
 			return (1);
 		i++;
 	}
