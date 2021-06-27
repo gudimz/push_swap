@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:48:53 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/27 19:32:52 by agigi            ###   ########.fr       */
+/*   Updated: 2021/06/27 20:04:47 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,19 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_init(&data, argc, argv);
 	ft_add_order(&data);
+	ft_push_b(&data);
+	while (data.stack_a)
+	{
+		printf("A_val= %d\n", ((t_cell *)data.stack_a->content)->value);
+		printf("A_ord= %d\n", ((t_cell *)data.stack_a->content)->order);
+		data.stack_a = data.stack_a->next;
+	}
+	while (data.stack_b)
+	{
+		printf("B_val= %d\n", ((t_cell *)data.stack_b->content)->value);
+		printf("B_ord= %d\n", ((t_cell *)data.stack_b->content)->order);
+		data.stack_a = data.stack_a->next;
+	}
 	printf("start algos\n");
 	return (0);
 }
