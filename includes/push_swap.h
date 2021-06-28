@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 00:33:44 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/27 20:02:14 by agigi            ###   ########.fr       */
+/*   Updated: 2021/06/28 16:08:28 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ int		ft_check_input(int argc, char **argv);
 void	ft_add_order(t_data *data);
 void	ft_push_a(t_data *data);
 void	ft_push_b(t_data *data);
+void	ft_swap_a(t_data *data);
+void	ft_swap_b(t_data *data);
+void	ft_swap_ab(t_data *data);
 
 #endif
