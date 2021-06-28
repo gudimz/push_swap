@@ -1,46 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 15:21:23 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/28 18:27:48 by agigi            ###   ########.fr       */
+/*   Created: 2021/06/28 16:11:37 by agigi             #+#    #+#             */
+/*   Updated: 2021/06/28 18:26:15 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap_a(t_data *data, int flag)
+void	ft_rotate_a(t_data *data, int flag)
 {
-	t_cell	*tmp;
+	t_list	*tmp;
 
 	if (!(data->stack_a && data->stack_a->next))
 		return ;
-	tmp = (t_cell *)data->stack_a->content;
-	data->stack_a->content = data->stack_a->next->content;
-	data->stack_a->next->content = tmp;
+	tmp = data->stack_a;
+	data->stack_a = data->stack_a->next;
+	tmp->next = 0;
+	ft_lstadd_back(&data->stack_a, tmp);
 	if (flag)
-		ft_putstr_fd("sa\n", 1);
+		ft_putstr_fd("ra\n", 1);
 }
 
-void	ft_swap_b(t_data *data, int flag)
+void	ft_rotate_b(t_data *data, int flag)
 {
-	t_cell	*tmp;
+	t_list	*tmp;
 
 	if (!(data->stack_b && data->stack_b->next))
 		return ;
-	tmp = (t_cell *)data->stack_b->content;
-	data->stack_b->content = data->stack_b->next->content;
-	data->stack_b->next->content = tmp;
+	tmp = data->stack_b;
+	data->stack_b = data->stack_b->next;
+	tmp->next = 0;
+	ft_lstadd_back(&data->stack_b, tmp);
 	if (flag)
-		ft_putstr_fd("sb\n", 1);
+		ft_putstr_fd("rb\n", 1);
 }
 
-void	ft_swap_ab(t_data *data)
+void	ft_rotate_ab(t_data *data)
 {
-	ft_swap_a(data, 0);
-	ft_swap_b(data, 0);
-	ft_putstr_fd("ss\n", 1);
+	ft_rotate_a(data, 0);
+	ft_rotate_b(data, 0);
+	ft_putstr_fd("rr\n", 1);
 }
