@@ -10,7 +10,8 @@ INCLD = -I ./includes/
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror $(INCLD) $(INCLD_LIBFT) -O3 -MD
 
-FILES_SWAP = main.c check_input.c add_order.c push.c swap.c rotate.c rev_rotate.c
+FILES_SWAP = main.c check_input.c add_order.c push.c swap.c rotate.c rev_rotate.c \
+			sort_stack.c
 
 SRC_SWAP = $(addprefix $(SRCDIR), $(FILES_SWAP))
 OBJS = $(SRC_SWAP:.c=.o)
