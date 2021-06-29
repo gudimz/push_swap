@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 00:33:44 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/28 20:14:01 by agigi            ###   ########.fr       */
+/*   Updated: 2021/06/29 17:47:04 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,16 @@ typedef struct s_data
 	t_list	*stack_a;
 	t_list	*stack_b;
 	t_cell	cell;
-	t_group	group;
+	t_group	group_a;
+	t_group	group_b;
 	int		flag;
+	int		next;
 }	t_data;
 
 int		ft_check_input(int argc, char **argv);
 void	ft_add_order(t_data *data);
 void	ft_big_sort_stack(t_data *data);
+void	ft_sort_half_a(t_data *data);
 void	ft_push_a(t_data *data);
 void	ft_push_b(t_data *data);
 void	ft_swap_a(t_data *data, int flag);

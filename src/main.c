@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:48:53 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/28 19:49:17 by agigi            ###   ########.fr       */
+/*   Updated: 2021/06/29 18:38:04 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,23 @@ static void	ft_init(t_data *data, int argc, char **argv)
 	}
 }
 
+int	ft_check_sort_stack_a(t_data *data)
+{
+	t_list	*tmp;
+
+	tmp = data->stack_a;
+	while (tmp->content)
+	{
+		if (((t_cell *)tmp->content)->order < ((t_cell *)tmp->next->content)->order)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	t_list	*tmp_a;
-	t_list	*tmp_b;
 
 	ft_bzero(&data, sizeof(t_data));
 	if (ft_check_input(argc, argv) == -1)
@@ -52,24 +64,17 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_init(&data, argc, argv);
 	ft_add_order(&data);
-	printf("start algos\n");
-	if (argc > 5)
+	if (ft_lstsize(data.stack_a) > 5)
+	{
 		ft_big_sort_stack(&data);
+		if (!ft_check_sort_stack_a(&data))
+			ft_sort_half_a(&data);
+	}
 	// else
 	// 	ft_small_sort_stack(&data);
-	tmp_a = data.stack_a;
-	tmp_b = data.stack_b;
-	while (tmp_a)
-	{
-		printf("A_val= %d\n", ((t_cell *)tmp_a->content)->value);
-		// printf("A_ord= %d\n", ((t_cell *)tmp_a->content)->order);
-		tmp_a = tmp_a->next;
-	}
-	while (tmp_b)
-	{
-		printf("B_val= %d\n", ((t_cell *)tmp_b->content)->value);
-		// printf("B_ord= %d\n", ((t_cell *)tmp_b->content)->order);
-		tmp_b = tmp_b->next;
-	}
 	return (0);
 }
+
+/*
+ARG=`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`; ./push_swap $ARG | wc -l
+*/
