@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:48:53 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/29 18:38:04 by agigi            ###   ########.fr       */
+/*   Updated: 2021/06/30 19:52:53 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ static void	ft_init(t_data *data, int argc, char **argv)
 	t_list	*new;
 
 	i = 1;
+	data->group.min = 1;
+	data->group.max = argc - 1;
+	data->group.med = (data->group.max - data->group.min) / 2 + data->group.min;
+	data->next = 1;
 	while (i < argc)
 	{
 		cell = ft_calloc(1, sizeof(t_cell));
@@ -56,6 +60,7 @@ int	ft_check_sort_stack_a(t_data *data)
 int	main(int argc, char **argv)
 {
 	t_data	data;
+	int		size;
 
 	ft_bzero(&data, sizeof(t_data));
 	if (ft_check_input(argc, argv) == -1)
@@ -64,11 +69,11 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_init(&data, argc, argv);
 	ft_add_order(&data);
-	if (ft_lstsize(data.stack_a) > 5)
+	size = ft_lstsize(data.stack_a);
+	if (size > 5)
 	{
-		ft_big_sort_stack(&data);
-		if (!ft_check_sort_stack_a(&data))
-			ft_sort_half_a(&data);
+		// while (!ft_check_sort_stack_a(&data))
+			ft_big_sort_stack(&data);
 	}
 	// else
 	// 	ft_small_sort_stack(&data);
