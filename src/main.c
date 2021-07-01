@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:48:53 by agigi             #+#    #+#             */
-/*   Updated: 2021/07/01 13:35:38 by agigi            ###   ########.fr       */
+/*   Updated: 2021/07/01 16:48:19 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,16 @@ int	main(int argc, char **argv)
 	ft_init(&data, argc, argv);
 	ft_add_order(&data);
 	size = ft_lstsize(data.stack_a);
-	// if (size > 5)
-	// {
-		// ft_first_sort(&data);
+	if (size > 5)
+	{
 		while (!ft_check_sort_stack_a(&data))
 			ft_big_sort_stack(&data);
-	// }
+	}
 	// else
 	// 	ft_small_sort_stack(&data);
 	return (0);
 }
 
 /*
-ARG=`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`; ./push_swap $ARG | wc -l
+** ARG=`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`; ./push_swap $ARG | wc -l
 */
