@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:59:23 by agigi             #+#    #+#             */
-/*   Updated: 2021/07/01 12:53:57 by agigi            ###   ########.fr       */
+/*   Updated: 2021/07/01 13:29:26 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ void	ft_from_a_to_b(t_data	*data)
 		i = ft_groupsize(data, 'a');
 		count_to_b = data->group.med - data->group.min + 1;
 		last_gr = ((t_cell *)ft_lstlast(data->stack_a)->content)->group;
-		// printf ("count = %d\n\n", count_to_b);
-		// printf ("i = %d\n\n", count_to_b);
 		while (count_to_b && i--)
 		{
 			if (((t_cell *)data->stack_a->content)->order == data->next && \
