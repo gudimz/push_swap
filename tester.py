@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    tester.py                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: copihendo <copihendo@student.42.fr>        +#+  +:+       +#+         #
+#    By: agigi <agigi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 10:35:58 by telron            #+#    #+#              #
-#    Updated: 2021/06/18 22:35:05 by copihendo        ###   ########.fr        #
+#    Updated: 2021/07/01 03:12:20 by agigi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ from sklearn.utils import shuffle
 import numpy as np
 
 path_generator = "./push_swap"
-path_checkers = "./checker_linux"
+path_checkers = "./checker_Mac"
 
 def put_statistic(array, end = "\n"):
 	std = round(np.std(array), 2)
@@ -70,5 +70,5 @@ def	check_comb_statistic(shape, iter):
 
 check_all_comb(3, 3)
 check_all_comb(5, 12)
-# check_comb_statistic(100, 100)
-# check_comb_statistic(500, 100)
+check_comb_statistic(100, 100)
+check_comb_statistic(500, 100)

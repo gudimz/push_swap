@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:48:53 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/30 19:52:53 by agigi            ###   ########.fr       */
+/*   Updated: 2021/07/01 02:35:15 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,8 @@ int	ft_check_sort_stack_a(t_data *data)
 	t_list	*tmp;
 
 	tmp = data->stack_a;
-	while (tmp->content)
-	{
-		if (((t_cell *)tmp->content)->order < ((t_cell *)tmp->next->content)->order)
-			return (0);
-		tmp = tmp->next;
-	}
+	if (((t_cell *)tmp->content)->group != -1 || data->stack_b)
+		return (0);
 	return (1);
 }
 
@@ -61,6 +57,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 	int		size;
+	// t_list	*tmp;
 
 	ft_bzero(&data, sizeof(t_data));
 	if (ft_check_input(argc, argv) == -1)
@@ -72,9 +69,22 @@ int	main(int argc, char **argv)
 	size = ft_lstsize(data.stack_a);
 	if (size > 5)
 	{
-		// while (!ft_check_sort_stack_a(&data))
+		// ft_first_sort(&data);
+		while (!ft_check_sort_stack_a(&data))
 			ft_big_sort_stack(&data);
 	}
+	// 	tmp = data.stack_a;
+	// 	while (tmp)
+	// 	{
+	// 		printf ("order %d  group %d\n", ((t_cell *)tmp->content)->order, ((t_cell *)tmp->content)->group);
+	// 		tmp = tmp->next;
+	// 	}
+	// 	tmp = data.stack_b;
+	// 	while (tmp)
+	// 	{
+	// 		printf ("B order %d  B roup %d\n", ((t_cell *)tmp->content)->order, ((t_cell *)tmp->content)->group);
+	// 		tmp = tmp->next;
+	// 	}
 	// else
 	// 	ft_small_sort_stack(&data);
 	return (0);
