@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:59:23 by agigi             #+#    #+#             */
-/*   Updated: 2021/07/01 03:53:19 by agigi            ###   ########.fr       */
+/*   Updated: 2021/07/01 12:53:57 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_from_a_to_b(t_data	*data)
 	int i;
 	int	count_ra;
 	int	index_gr;
+	int	last_gr;
 	int	count_to_b;
 
 	count_ra = 0;
@@ -50,8 +51,9 @@ void	ft_from_a_to_b(t_data	*data)
 	{
 		i = ft_groupsize(data, 'a');
 		count_to_b = data->group.med - data->group.min + 1;
-		printf ("count = %d\n\n", count_to_b);
-		printf ("i = %d\n\n", i);
+		last_gr = ((t_cell *)ft_lstlast(data->stack_a)->content)->group;
+		// printf ("count = %d\n\n", count_to_b);
+		// printf ("i = %d\n\n", count_to_b);
 		while (count_to_b && i--)
 		{
 			if (((t_cell *)data->stack_a->content)->order == data->next && \
@@ -72,7 +74,7 @@ void	ft_from_a_to_b(t_data	*data)
 				count_to_b--;
 			}
 		}
-		if (index_gr != ((t_cell *)data->stack_a->content)->group)
+		if (index_gr != last_gr)
 		{
 			while (count_ra--)
 				ft_rev_rotate_a(data, 1);
@@ -83,10 +85,12 @@ void	ft_from_a_to_b(t_data	*data)
 void	ft_from_b_to_a(t_data *data)
 {
 	int i;
+	int	count_to_a;
 
 	i = ft_groupsize(data, 'b');
+	count_to_a = data->group.max - data->group.med + 1;
 	data->group.index++;
-	while (data->stack_b && i--)
+	while (count_to_a && data->stack_b && i--)
 	{
 		if (((t_cell *)data->stack_b->content)->order == data->next)
 		{
@@ -98,6 +102,7 @@ void	ft_from_b_to_a(t_data *data)
 		else if (((t_cell *)data->stack_b->content)->order >=  data->group.med)
 		{
 			((t_cell *)data->stack_b->content)->group = data->group.index;
+			count_to_a--;
 			ft_push_a(data);
 		}
 		else
