@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 15:48:53 by agigi             #+#    #+#             */
-/*   Updated: 2021/07/01 18:17:13 by agigi            ###   ########.fr       */
+/*   Updated: 2021/07/01 21:08:02 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,20 @@ static void	ft_error_exit(char *message)
 {
 	ft_putstr_fd(message, 2);
 	exit(1);
+}
+
+static void	ft_free(t_data *data)
+{
+	t_list	*tmp;
+
+	tmp = data->stack_a;
+	while (tmp)
+	{
+		free(((t_cell *)tmp->content));
+		tmp = tmp->next;
+	}
+	ft_lstclear(&data->stack_a, (void *)0);
+	ft_lstclear(&data->stack_b, (void *)0);
 }
 
 static void	ft_init(t_data *data, int argc, char **argv)
@@ -73,6 +87,7 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_small_sort_stack(&data);
+	ft_free(&data);
 	return (0);
 }
 
