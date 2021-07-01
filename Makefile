@@ -11,7 +11,7 @@ INCLD = -I ./includes/
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror $(INCLD) $(INCLD_LIBFT) -O3 -MD
 
-FILES_SWAP = main.c check_input.c add_order.c big_sort_stack.c
+FILES_SWAP = main.c check_input.c add_order.c big_sort_stack.c small_sort_stack.c
 
 FILES_CMD = push.c swap.c rotate.c rev_rotate.c
 
