@@ -1,0 +1,6 @@
+ARG=`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`; ./push_swap $ARG
+
+
+conda activate conda-sklearn-dev
+
+conda deactivate

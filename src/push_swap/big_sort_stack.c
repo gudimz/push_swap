@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:59:23 by agigi             #+#    #+#             */
-/*   Updated: 2021/07/01 16:48:39 by agigi            ###   ########.fr       */
+/*   Updated: 2021/07/02 23:08:55 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int	ft_sort_group_a(t_data *data, int size, int count_ra)
 		}
 		else
 		{
-			ft_push_b(data);
+			ft_push_b(data, 1);
 			count_to_b--;
 		}
 	}
@@ -104,14 +104,14 @@ static void	ft_from_b_to_a(t_data *data)
 		{
 			((t_cell *)data->stack_b->content)->group = -1;
 			data->next++;
-			ft_push_a(data);
+			ft_push_a(data, 1);
 			ft_rotate_a(data, 1);
 		}
 		else if (((t_cell *)data->stack_b->content)->order >= data->group.med)
 		{
 			((t_cell *)data->stack_b->content)->group = data->group.index;
 			count_to_a--;
-			ft_push_a(data);
+			ft_push_a(data, 1);
 		}
 		else
 			ft_rotate_b(data, 1);

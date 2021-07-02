@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 19:25:58 by agigi             #+#    #+#             */
-/*   Updated: 2021/07/01 21:04:22 by agigi            ###   ########.fr       */
+/*   Updated: 2021/07/02 17:21:44 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	ft_add_order(t_data *data)
 		tmp_list = tmp_list->next;
 		i++;
 	}
-	i = 0;
 	ft_add_sort_order(data, array, len);
 	free (array);
 }

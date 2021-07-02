@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 15:21:23 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/28 18:27:48 by agigi            ###   ########.fr       */
+/*   Updated: 2021/07/02 23:11:30 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ void	ft_swap_b(t_data *data, int flag)
 		ft_putstr_fd("sb\n", 1);
 }
 
-void	ft_swap_ab(t_data *data)
+void	ft_swap_ab(t_data *data, int flag)
 {
 	ft_swap_a(data, 0);
 	ft_swap_b(data, 0);
-	ft_putstr_fd("ss\n", 1);
+	if (flag)
+		ft_putstr_fd("ss\n", 1);
 }

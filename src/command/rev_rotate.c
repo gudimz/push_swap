@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:55:41 by agigi             #+#    #+#             */
-/*   Updated: 2021/06/28 18:30:04 by agigi            ###   ########.fr       */
+/*   Updated: 2021/07/02 23:10:36 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ void	ft_rev_rotate_b(t_data *data, int flag)
 		ft_putstr_fd("rrb\n", 1);
 }
 
-void	ft_rev_rotate_ab(t_data *data)
+void	ft_rev_rotate_ab(t_data *data, int flag)
 {
 	ft_rev_rotate_a(data, 0);
 	ft_rev_rotate_b(data, 0);
-	ft_putstr_fd("rrr\n", 1);
+	if (flag)
+		ft_putstr_fd("rrr\n", 1);
 }

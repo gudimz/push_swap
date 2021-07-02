@@ -6,7 +6,7 @@
 /*   By: agigi <agigi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:50:24 by agigi             #+#    #+#             */
-/*   Updated: 2021/07/01 20:11:36 by agigi            ###   ########.fr       */
+/*   Updated: 2021/07/02 23:09:24 by agigi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ void	ft_four_cell(t_data *data)
 		while (((t_cell *)data->stack_a->content)->order != 1)
 			ft_rev_rotate_a(data, 1);
 	}
-	ft_push_b(data);
+	ft_push_b(data, 1);
 	ft_three_cell(data);
-	ft_push_a(data);
+	ft_push_a(data, 1);
 }
 
 void	ft_five_cell(t_data *data)
@@ -93,7 +93,7 @@ void	ft_five_cell(t_data *data)
 	{
 		if (((t_cell *)data->stack_a->content)->order < 3)
 		{
-			ft_push_b(data);
+			ft_push_b(data, 1);
 			i--;
 		}
 		else
@@ -102,8 +102,8 @@ void	ft_five_cell(t_data *data)
 	ft_three_cell(data);
 	if (((t_cell *)data->stack_b->content)->order == 1)
 		ft_swap_b(data, 1);
-	ft_push_a(data);
-	ft_push_a(data);
+	ft_push_a(data, 1);
+	ft_push_a(data, 1);
 }
 
 void	ft_small_sort_stack(t_data *data)

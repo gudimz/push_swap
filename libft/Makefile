@@ -14,7 +14,7 @@ FILES = ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_strcmp.c	
 		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c			\
 		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c 				\
 		ft_lstadd_back.c ft_lstclear.c ft_lstiter.c ft_lstmap.c				\
-		ft_lstdelone.c														\
+		ft_lstdelone.c get_next_line.c										\
 
 SRC_FILES = $(addprefix $(SRCDIR), $(FILES))
 
