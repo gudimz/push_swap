@@ -1,6 +1,6 @@
 # push_swap
 
-# <img src= "https://drive.google.com/file/d/1zn0pib6UQQi7NRyje69tfBy4eWQ1PL0y/view?usp=sharing" width=200 height=200>
+# <img src= "https://drive.google.com/uc?export=view&id=1zn0pib6UQQi7NRyje69tfBy4eWQ1PL0y" width=200 height=200>
 
 ## Introduction.
 
