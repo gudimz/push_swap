@@ -1,5 +1,7 @@
 # push_swap
 
+# <img src= "https://drive.google.com/file/d/1zn0pib6UQQi7NRyje69tfBy4eWQ1PL0y/view?usp=sharing" width=200 height=200>
+
 ## Introduction.
 
 This project will make you sort data on a stack, with a limited set of instructions, using
@@ -12,7 +14,15 @@ The Push_swap project is a very simple and highly effective algorithm project: d
 
 ## How to use?
 
-`./setup.sh`
+`make`
+***
+`$>ARG=ruby -e "puts (1..500).to_a.shuffle.join(' ')"; ./push_swap $ARG`
+
+## How to use checker?
+
+`make checker`
+***
+`$>ARG=ruby -e "puts (1..500).to_a.shuffle.join(' ')"; ./push_swap $ARG | ./checker $ARG`
 
 ## Good Luck!
 
